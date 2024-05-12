@@ -63,3 +63,12 @@ def cadastro_receitas():
                 print("Opção inválida!")
 
 cadastro_receitas()
+
+
+# Criar uma def para excluir e outro para atualizar os pratos antes deles submenus. E dentro do primeiro Def vai enviar para o próximo def
+# Exemplo: 1 para menu de exclusão; 2 para menu de atualização; 3 para voltar para o menu anterior; 4 para finalizar o programa.
+
+
+submenu = int(input('''
+     1 - Excluir receita
+     2 - Atualizar receita'''))
