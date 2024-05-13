@@ -71,4 +71,6 @@ cadastro_receitas()
 
 submenu = int(input('''
      1 - Excluir receita
-     2 - Atualizar receita'''))
+     2 - Atualizar receita
+     3 - Voltar para o menu anterior
+     4 - Finalizar o programa'''))
