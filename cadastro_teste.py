@@ -1,3 +1,5 @@
+import os
+
 entrada = []
 principal = []
 sobremesa = []
@@ -142,3 +144,32 @@ def submenu_principal():
 
 cadastro_receitas()
 submenu_principal()
+
+def cardapio():
+     
+    ent = int(input("Monte seu cardápio! Quantas entradas você deseja? "))
+    prin = int(input("Quantos pratos principais? "))
+    sob = int(input("Quantas sobremesas? "))
+
+    for i in range (ent):
+        index = int.from_bytes(os.urandom(1), "little") % len(entrada)
+        recipe_ent = entrada[index]
+
+        print(recipe_ent)
+
+    for i in range (prin):
+        index = int.from_bytes(os.urandom(1), "little") % len(principal)
+        recipe_prin = principal[index]
+
+        print(recipe_prin)
+
+    for i in range (sob):
+        index = int.from_bytes(os.urandom(1), "little") % len(sobremesa)
+        recipe_sob = sobremesa[index]
+
+        print(recipe_sob)
+
+    sugestao = input("Deseja outra sugestão aleatória de cardápio? Digite 'sim' ou 'não': ")
+
+    if sugestao == 'sim':
+        cardapio()
