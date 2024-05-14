@@ -13,7 +13,7 @@ def cadastro_receitas():
         3 - Sobremesa
         4 - Quantidade de receitas cadastradas
         5 - Mostrar a lista
-        6 - Sair
+        6 - Continuar
         
         Selecione: '''))
 
@@ -34,7 +34,7 @@ def cadastro_receitas():
             print()
 
         elif selecao_prato == 6:
-            print("Tenha um bom dia!")
+            print("Selecione no próximo menu:")
             break
 
         elif selecao_prato == 1 or selecao_prato == 2 or selecao_prato == 3:
