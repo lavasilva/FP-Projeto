@@ -2,6 +2,7 @@ entrada = []
 principal = []
 sobremesa = []
 
+# Menu de cadastro de Receitas
 def cadastro_receitas():
     global entrada, principal, sobremesa
     
