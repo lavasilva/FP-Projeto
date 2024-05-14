@@ -1,8 +1,10 @@
-def cadastro_receitas():
-    entrada = []
-    principal = []
-    sobremesa = []
+entrada = []
+principal = []
+sobremesa = []
 
+def cadastro_receitas():
+    global entrada, principal, sobremesa
+    
     while True:
         print("Cadastro de Receitas")
         selecao_prato = int(input('''
@@ -84,6 +86,8 @@ def submenu_atualizar(receitas):
     print(f"Prato {nome_prato} não encontrado.")
 
 def submenu_principal():
+    global entrada, principal, sobremesa
+    
     while True:
         submenu = int(input('''
         1 - Excluir receita
