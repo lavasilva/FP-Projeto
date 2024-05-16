@@ -22,14 +22,19 @@ def cadastro_receitas():
         
         Selecione: '''))
 
+        # Entrada para o menu de cardápio
+        if selecao == 4:
+            cardapio()
+
         # Contagem das listas dos pratos para a quantidade
-        if selecao == 5:
+        elif selecao == 5:
             print("Quantidade de receitas cadastradas:")
             print(f"Entrada: {len(entrada)} receitas")
             print(f"Principal: {len(principal)} receitas")
             print(f"Sobremesa: {len(sobremesa)} receitas")
             print()
-
+    
+        # Lógica de print das receitas cadastradas pelo usuário
         elif selecao == 6:
             print("Receitas cadastradas:")
             for tipo, receitas in [("Entrada", entrada), ("Principal", principal), ("Sobremesa", sobremesa)]:
@@ -39,10 +44,12 @@ def cadastro_receitas():
                 print()
             print()
 
+        # Entrada para o menu seguinte
         elif selecao == 7:
             print("\nSelecione no próximo menu:")
             # Def chamada para retornar ao menu principal depois de selecionar a opção 3 do submenu
             submenu_principal() 
+
 
         # Cadastro do prato
         elif selecao == 1 or selecao == 2 or selecao == 3:
@@ -158,11 +165,11 @@ def submenu_principal():
             print("\nOpção inválida!")
 
 
-cadastro_receitas()
 
 def cardapio(): 
 
-    ent = int(input("Monte seu cardápio! Quantas entradas você deseja? "))
+    print("\nMENU CARDÁPIO:")
+    ent = int(input("\nMonte seu cardápio! Quantas entradas você deseja? "))
     prin = int(input("Quantos pratos principais? "))
     sob = int(input("Quantas sobremesas? "))
 
@@ -186,3 +193,5 @@ def cardapio():
     print(f"""Entradas: {recipe_ent}\n
     Pratos Principais: {recipe_prin}\n
     Sobremesas: {recipe_sob}""")
+
+cadastro_receitas()
