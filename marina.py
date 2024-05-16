@@ -171,7 +171,7 @@ def submenu_principal(entrada, principal, sobremesa, favoritos):
                 2 - Principais
                 3 - Sobremesas
                 
-                Insira o número que indica o tipo de prato que você quer de sugestão: '''))
+                Insira o número que indica o tipo de prato que você quer sugestões: '''))
             except ValueError:
                 print("Opção inválida! Por favor, insira um número de 1 a 3.")
                 continue
