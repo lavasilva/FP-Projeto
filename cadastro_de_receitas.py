@@ -1,3 +1,5 @@
+import random
+
 entrada = []
 principal = []
 sobremesa = []
@@ -156,3 +158,30 @@ def submenu_principal():
 
 
 cadastro_receitas()
+
+def cardapio(): 
+
+    ent = int(input("Monte seu cardápio! Quantas entradas você deseja? "))
+    prin = int(input("Quantos pratos principais? "))
+    sob = int(input("Quantas sobremesas? "))
+
+    if ent > len(entrada):
+        print("Não há entradas cadastradas o suficiente!")
+        ent = len(entrada)
+
+    if prin > len(principal):
+        print("Não há pratos principais cadastrados o suficiente!")
+        prin = len(principal)
+
+    if sob > len(sobremesa):
+        print("Não há sobremesas cadastradas o suficiente!")
+        sob = len(sobremesa)
+
+    recipe_ent = random.sample(entrada, ent)
+    recipe_prin = random.sample(principal, prin)
+    recipe_sob = random.sample(sobremesa, sob)
+
+    print("Cardápio:\n")
+    print(f"""Entradas: {recipe_ent}\n
+    Pratos Principais: {recipe_prin}\n
+    Sobremesas: {recipe_sob}""")
