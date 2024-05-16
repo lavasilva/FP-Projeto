@@ -13,6 +13,7 @@ def cadastro_receitas():
         1 - Prato de Entrada
         2 - Prato Principal
         3 - Sobremesa
+        4 - Cardápio
         4 - Quantidade de receitas cadastradas
         5 - Mostrar a lista
         6 - Continuar
