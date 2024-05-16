@@ -146,6 +146,13 @@ def submenu_principal(entrada, principal, sobremesa, favoritos):
                 print(receita)
             print()
 
+        elif submenu == 6:
+            tipodeprato = input("""
+                        1 - Entradas\n
+                        2 - Principais\n
+                        3 - Sobremesas\n
+                        Insira o número que indica o tipo de prato que você quer de sugestão: """)
+
         else:
             print("Opção inválida!")
 entrada, principal, sobremesa, favoritos = cadastro_receitas()
