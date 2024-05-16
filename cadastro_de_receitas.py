@@ -14,21 +14,21 @@ def cadastro_receitas():
         2 - Prato Principal
         3 - Sobremesa
         4 - Cardápio
-        4 - Quantidade de receitas cadastradas
-        5 - Mostrar a lista
-        6 - Continuar
+        5 - Quantidade de receitas cadastradas
+        6 - Mostrar a lista
+        7 - Continuar
         
         Selecione: '''))
 
         # Contagem das listas dos pratos para a quantidade
-        if selecao == 4:
+        if selecao == 5:
             print("Quantidade de receitas cadastradas:")
             print(f"Entrada: {len(entrada)} receitas")
             print(f"Principal: {len(principal)} receitas")
             print(f"Sobremesa: {len(sobremesa)} receitas")
             print()
 
-        elif selecao == 5:
+        elif selecao == 6:
             print("Receitas cadastradas:")
             for tipo, receitas in [("Entrada", entrada), ("Principal", principal), ("Sobremesa", sobremesa)]:
                 print(f"{tipo}: {len(receitas)} receitas")
@@ -37,7 +37,7 @@ def cadastro_receitas():
                 print()
             print()
 
-        elif selecao == 6:
+        elif selecao == 7:
             print("\nSelecione no próximo menu:")
             # Def chamada para retornar ao menu principal depois de selecionar a opção 3 do submenu
             submenu_principal() 
