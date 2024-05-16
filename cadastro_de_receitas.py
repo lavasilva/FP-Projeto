@@ -185,3 +185,11 @@ def cardapio():
     print(f"""Entradas: {recipe_ent}\n
     Pratos Principais: {recipe_prin}\n
     Sobremesas: {recipe_sob}""")
+
+    sugestao = input("Você deseja outro cardápio? Digite sim ou não: ")
+
+    if sugestao == "sim":
+        cardapio()
+
+    else: 
+        print("Tenha um bom dia!")
