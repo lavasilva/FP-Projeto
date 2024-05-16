@@ -6,15 +6,19 @@ def cadastro_receitas():
 
     while True:
         print("Cadastro de Receitas")
-        selecao_prato = int(input('''
-        1 - Prato de Entrada
-        2 - Prato Principal
-        3 - Sobremesa
-        4 - Quantidade de receitas cadastradas
-        5 - Mostrar a lista
-        6 - Sair
-        
-        Selecione: '''))
+        try:
+            selecao_prato = int(input('''
+            1 - Prato de Entrada
+            2 - Prato Principal
+            3 - Sobremesa
+            4 - Quantidade de receitas cadastradas
+            5 - Mostrar a lista
+            6 - Sair
+            
+            Selecione: '''))
+        except ValueError:
+            print("Opção inválida! Por favor, insira um número de 1 a 6.")
+            continue
 
         if selecao_prato == 4:
             print("Quantidade de receitas cadastradas:")
@@ -36,7 +40,7 @@ def cadastro_receitas():
             print("Tenha um bom dia!")
             break
 
-        elif selecao_prato == 1 or selecao_prato == 2 or selecao_prato == 3:
+        elif selecao_prato in [1, 2, 3]:
             nome = input("\nInforme o nome do prato: ")
             pais = input("Informe o país de origem do prato: ")
             ingredientes = input("Informe os ingredientes para o prato: ")
@@ -91,23 +95,32 @@ def submenu_atualizar(receitas):
 
 def submenu_principal(entrada, principal, sobremesa, favoritos):
     while True:
-        submenu = int(input('''
-        1 - Excluir receita
-        2 - Atualizar receita
-        3 - Voltar para o menu anterior
-        4 - Finalizar o programa
-        5 - Ver favoritos
-        6 - Ver receitas sugeridas
-        
-        Selecione: '''))
+        try:
+            submenu = int(input('''
+            1 - Excluir receita
+            2 - Atualizar receita
+            3 - Voltar para o menu anterior
+            4 - Finalizar o programa
+            5 - Ver favoritos
+            6 - Ver receitas sugeridas
+            
+            Selecione: '''))
+        except ValueError:
+            print("Opção inválida! Por favor, insira um número de 1 a 6.")
+            continue
 
         if submenu == 1:
-            selecao_prato = int(input('''
-            1 - Entrada
-            2 - Principal
-            3 - Sobremesa
-            
-            Selecione o tipo de prato que deseja excluir: '''))
+            try:
+                selecao_prato = int(input('''
+                1 - Entrada
+                2 - Principal
+                3 - Sobremesa
+                
+                Selecione o tipo de prato que deseja excluir: '''))
+            except ValueError:
+                print("Opção inválida! Por favor, insira um número de 1 a 3.")
+                continue
+
             if selecao_prato == 1:
                 submenu_excluir(entrada)
             elif selecao_prato == 2:
@@ -118,12 +131,17 @@ def submenu_principal(entrada, principal, sobremesa, favoritos):
                 print("Opção inválida!")
 
         elif submenu == 2:
-            selecao_prato = int(input('''
-            1 - Entrada
-            2 - Principal
-            3 - Sobremesa
-            
-            Selecione o tipo de prato que deseja atualizar: '''))
+            try:
+                selecao_prato = int(input('''
+                1 - Entrada
+                2 - Principal
+                3 - Sobremesa
+                
+                Selecione o tipo de prato que deseja atualizar: '''))
+            except ValueError:
+                print("Opção inválida! Por favor, insira um número de 1 a 3.")
+                continue
+
             if selecao_prato == 1:
                 submenu_atualizar(entrada)
             elif selecao_prato == 2:
@@ -139,7 +157,7 @@ def submenu_principal(entrada, principal, sobremesa, favoritos):
         elif submenu == 4:
             print("Tenha um bom dia!")
             exit()
-        
+
         elif submenu == 5:
             print("Receitas favoritadas:")
             for receita in favoritos:
@@ -147,13 +165,32 @@ def submenu_principal(entrada, principal, sobremesa, favoritos):
             print()
 
         elif submenu == 6:
-            tipodeprato = input("""
-                        1 - Entradas\n
-                        2 - Principais\n
-                        3 - Sobremesas\n
-                        Insira o número que indica o tipo de prato que você quer de sugestão: """)
+            try:
+                selecao_prato = int(input('''
+                1 - Entradas
+                2 - Principais
+                3 - Sobremesas
+                
+                Insira o número que indica o tipo de prato que você quer de sugestão: '''))
+            except ValueError:
+                print("Opção inválida! Por favor, insira um número de 1 a 3.")
+                continue
+
+            if selecao_prato == 1:
+                with open("sugestoes_entradas.txt", "r", encoding="utf8") as arquivo:
+                    print(arquivo.read())
+            elif selecao_prato == 2:
+                with open("sugestoes_principais.txt", "r", encoding="utf8") as arquivo:
+                    print(arquivo.read())
+            elif selecao_prato == 3:
+                with open("sugestoes_sobremesas.txt", "r", encoding="utf8") as arquivo:
+                    print(arquivo.read())
+            else:
+                print("Opção inválida!")
 
         else:
             print("Opção inválida!")
+
 entrada, principal, sobremesa, favoritos = cadastro_receitas()
 submenu_principal(entrada, principal, sobremesa, favoritos)
+
