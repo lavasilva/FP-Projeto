@@ -49,7 +49,7 @@ def cadastro_receitas():
                 "Ingredientes": ingredientes,
                 "Modo de preparo": preparo
             }
-            if favoritar == "S" or "s":
+            if favoritar.lower() == "s":
                 favoritos.append(receita)
 
             if selecao_prato == 1:
@@ -66,6 +66,8 @@ def cadastro_receitas():
 
         else:
             print("Opção inválida!")
+
+    return entrada, principal, sobremesa, favoritos
 
 def submenu_excluir(receitas):
     nome_prato = input("Informe o nome do prato que deseja excluir: ")
@@ -87,7 +89,7 @@ def submenu_atualizar(receitas):
             return
     print(f"Prato {nome_prato} não encontrado.")
 
-def submenu_principal():
+def submenu_principal(entrada, principal, sobremesa, favoritos):
     while True:
         submenu = int(input('''
         1 - Excluir receita
@@ -95,6 +97,7 @@ def submenu_principal():
         3 - Voltar para o menu anterior
         4 - Finalizar o programa
         5 - Ver favoritos
+        6 - Ver receitas sugeridas
         
         Selecione: '''))
 
@@ -137,12 +140,13 @@ def submenu_principal():
             print("Tenha um bom dia!")
             exit()
         
-        elif submenu ==5:
-            print(f"Receitas favoritadas: {favoritos}")
+        elif submenu == 5:
+            print("Receitas favoritadas:")
+            for receita in favoritos:
+                print(receita)
+            print()
 
         else:
             print("Opção inválida!")
-
-
-cadastro_receitas()
-submenu_principal()
+entrada, principal, sobremesa, favoritos = cadastro_receitas()
+submenu_principal(entrada, principal, sobremesa, favoritos)
