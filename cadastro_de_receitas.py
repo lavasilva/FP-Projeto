@@ -95,10 +95,22 @@ def submenu_atualizar(receitas):
     nome_prato = input("Informe o nome do prato que deseja atualizar: ")
     for receita in receitas:
         if receita["Nome"] == nome_prato:
-            receita["País de origem"] = input("Informe o novo país de origem do prato: ")
-            receita["Ingredientes"] = input("Informe os novos ingredientes para o prato: ")
-            receita["Modo de preparo"] = input("Escreva o novo modo de preparo: ")
-            print(f"Prato {nome_prato} atualizado com sucesso!")
+            escolha = int(input('''O que deseja atualizar?
+                        1 - Nome
+                        2 - País
+                        3 - Ingredientes
+                        4 - Modo de preparo
+                                
+                        selecione: '''))
+            if escolha == 1:
+                receita["Nome"] = input("Informe o novo nome do prato: ")
+            if escolha == 2:
+                receita["País de origem"] = input("Informe o novo país de origem do prato: ")
+            if escolha == 3:
+                receita["Ingredientes"] = input("Informe os novos ingredientes do prato: ")
+            if escolha == 4:
+                receita["Modo de preparo"] = input("Informe o novo modo de preparo prato: ")
+            print(f"\nPrato {nome_prato} atualizado com sucesso!")
             return
     print(f"Prato {nome_prato} não encontrado.")
 
@@ -123,7 +135,7 @@ def submenu_principal():
         Selecione: '''))
 
         if submenu == 1:
-            selecao = int(input('''
+            selecao = int(input('''\nExcluir prato:
             1 - Entrada
             2 - Principal
             3 - Sobremesa
@@ -139,7 +151,7 @@ def submenu_principal():
                 print("Opção inválida!")
 
         elif submenu == 2:
-            selecao = int(input('''
+            selecao = int(input('''\nAtualizar prato:
             1 - Entrada
             2 - Principal
             3 - Sobremesa
@@ -169,7 +181,7 @@ def submenu_principal():
 def cardapio(): 
     
     while True: 
-        ent = int(input("Monte seu cardápio! Quantas entradas você deseja? "))
+        ent = int(input("\nMonte seu cardápio! Quantas entradas você deseja? "))
         prin = int(input("Quantos pratos principais? "))
         sob = int(input("Quantas sobremesas? "))
 
@@ -196,6 +208,7 @@ def cardapio():
 
         sugestao = input("Você deseja outro cardápio? Digite sim ou não: ")
 
-        if sugestao == 'não':
+        if sugestao == 'nao':
             break
 
+cadastro_receitas()
