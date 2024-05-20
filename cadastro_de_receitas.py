@@ -167,31 +167,35 @@ def submenu_principal():
 
 
 def cardapio(): 
+    
+    while True: 
+        ent = int(input("Monte seu cardápio! Quantas entradas você deseja? "))
+        prin = int(input("Quantos pratos principais? "))
+        sob = int(input("Quantas sobremesas? "))
 
-    print("\nMENU CARDÁPIO:")
-    ent = int(input("\nMonte seu cardápio! Quantas entradas você deseja? "))
-    prin = int(input("Quantos pratos principais? "))
-    sob = int(input("Quantas sobremesas? "))
+        if ent > len(entrada):
+            print("Não há entradas cadastradas o suficiente!")
+            ent = len(entrada)
 
-    if ent > len(entrada):
-        print("Não há entradas cadastradas o suficiente!")
-        ent = len(entrada)
+        if prin > len(principal):
+            print("Não há pratos principais cadastrados o suficiente!")
+            prin = len(principal)
 
-    if prin > len(principal):
-        print("Não há pratos principais cadastrados o suficiente!")
-        prin = len(principal)
+        if sob > len(sobremesa):
+            print("Não há sobremesas cadastradas o suficiente!")
+            sob = len(sobremesa)
 
-    if sob > len(sobremesa):
-        print("Não há sobremesas cadastradas o suficiente!")
-        sob = len(sobremesa)
+        recipe_ent = random.sample(entrada, ent)
+        recipe_prin = random.sample(principal, prin)
+        recipe_sob = random.sample(sobremesa, sob)
 
-    recipe_ent = random.sample(entrada, ent)
-    recipe_prin = random.sample(principal, prin)
-    recipe_sob = random.sample(sobremesa, sob)
+        print("Cardápio:\n")
+        print(f"""Entradas: {recipe_ent}\n
+        Pratos Principais: {recipe_prin}\n
+        Sobremesas: {recipe_sob}""")
 
-    print("Cardápio:\n")
-    print(f"""Entradas: {recipe_ent}\n
-    Pratos Principais: {recipe_prin}\n
-    Sobremesas: {recipe_sob}""")
+        sugestao = input("Você deseja outro cardápio? Digite sim ou não: ")
 
-cadastro_receitas()
+        if sugestao == 'não':
+            break
+
