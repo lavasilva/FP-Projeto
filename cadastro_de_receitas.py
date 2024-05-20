@@ -1,15 +1,15 @@
-arquivo = open("arquivo_receitas.txt", "a+")
 import random
 
 entrada = []
 principal = []
 sobremesa = []
 receitas = []
+receitas = entrada + principal + sobremesa
 
 # Menu de cadastro de receitas 
 def cadastro_receitas():
     # Variáveis globais para serem utilzadas em outras funções
-    global entrada, principal, sobremesa
+    global entrada, principal, sobremesa, receitas
     global nome, pais, ingredientes, preparo
     
     while True:
@@ -51,7 +51,7 @@ def cadastro_receitas():
         elif selecao == 7:
             print("Filtrar receitas por país de origem:")    
             # Def chamada para filtrar receitas por país
-            filtrar_receitas(receitas)  
+            filtrar_receitas(receitas) 
 
         # Entrada para o menu seguinte
         elif selecao == 8:
@@ -92,24 +92,25 @@ def cadastro_receitas():
 
 #Salvando dados cadastrados em arquivo de formato .txt
 def salvar_receitas(receitas):    
-    with open("arquivo_receitas.txt", "r+") as arquivo:
+    with open("arquivo_receitas.txt", "w") as arquivo:
         for receita in receitas:
-            arquivo.write(f"Nome do prato: {nome}\n")
-            arquivo.write(f"País: {pais} \n")
-            arquivo.write(f"Ingredientes: {ingredientes} \n")
-            arquivo.write(f"Modo de preparo: {preparo} \n")
+            arquivo.write(f"Nome do prato: {receita['Nome']}\n")
+            arquivo.write(f"País: {receita['País de origem']} \n")
+            arquivo.write(f"Ingredientes: {receita['Ingredientes']} \n")
+            arquivo.write(f"Modo de preparo: {receita['Modo de preparo']} \n")
             arquivo.write("\n\n")
             print("Dados salvos com sucesso!")
 
 # Função para filtrar receitas
 def filtrar_receitas(receitas):
+    receitas_filtradas = []
     with open("arquivo_receitas.txt", "r"):
         pais = input("Informe o país: ")
         for receita in receitas:
-            if receita[pais] == pais:
+            if receita["País de origem"] == pais:
                 receitas_filtradas = []
                 receitas_filtradas.append(receita)
-    return receitas_filtradas()
+    return print(receitas_filtradas)
 
 #  Função para o submenu de exclusão
 def submenu_excluir(receitas):
@@ -194,6 +195,7 @@ def submenu_principal():
 
         elif submenu == 4:
             print("\nTenha um bom dia!")
+            salvar_receitas(receitas)
             exit()
 
         else:
