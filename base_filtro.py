@@ -42,15 +42,9 @@ def cadastro_receitas():
             print()
 
         elif selecao == 6:
-            print("Filtrar receitas por país de origem:")
-            def filtrar_receitas(receitas):
-                with open("arquivo_receitas.txt", "r"):
-                    pais = input("Informe o país: ")
-                    for receita in receitas:
-                        if receita[pais] == pais:
-                            receitas_filtradas = []
-                            receitas_filtradas.append(receita)
-                    return receitas_filtradas()          
+            print("Filtrar receitas por país de origem:")    
+            # Def chamada para filtrar receitas por país
+            filtrar_receitas(receitas)      
 
         elif selecao == 7:
             print("\nSelecione no próximo menu:")
@@ -71,6 +65,9 @@ def cadastro_receitas():
                 "Modo de preparo": preparo
             }
 
+            receitas = []
+            receitas.append(receita)
+
             if selecao == 1:
                 print("É uma entrada\n")
                 entrada.append(receita)
@@ -83,17 +80,27 @@ def cadastro_receitas():
                 print("É uma sobremesa\n")
                 sobremesa.append(receita)
 
-        else:
-            print("Opção inválida!")
+            else:
+                print("Opção inválida!")
 
-        #Salvando dados cadastrados em arquivo de formato .txt
-        with open("arquivo_receitas.txt", "r+") as arquivo:
-            arquivo.write(f"Nome do prato: {nome}\n")
-            arquivo.write(f"País: {pais} \n")
-            arquivo.write(f"Ingredientes: {ingredientes} \n")
-            arquivo.write(f"Modo de preparo: {preparo} \n")
-            arquivo.write("\n\n\n")
-            print("Dados salvos com sucesso!")
+            #Salvando dados cadastrados em arquivo de formato .txt
+            with open("arquivo_receitas.txt", "r+") as arquivo:
+                arquivo.write(f"Nome do prato: {nome}\n")
+                arquivo.write(f"País: {pais} \n")
+                arquivo.write(f"Ingredientes: {ingredientes} \n")
+                arquivo.write(f"Modo de preparo: {preparo} \n")
+                arquivo.write("\n\n\n")
+                print("Dados salvos com sucesso!")
+
+# Função para filtrar receitas
+def filtrar_receitas(receitas):
+    with open("arquivo_receitas.txt", "r"):
+        pais = input("Informe o país: ")
+        for receita in receitas:
+            if receita[pais] == pais:
+                receitas_filtradas = []
+                receitas_filtradas.append(receita)
+    return receitas_filtradas()
 
 #  Função para o submenu de exclusão
 def submenu_excluir(receitas):
@@ -179,9 +186,6 @@ def submenu_principal():
         else:
             print("\nOpção inválida!")
 
-
-cadastro_receitas()
-
 def cardapio(): 
     while True: 
         ent = int(input("Monte seu cardápio! Quantas entradas você deseja? "))
@@ -213,3 +217,5 @@ def cardapio():
 
         if sugestao == 'não':
             break
+
+cadastro_receitas()
