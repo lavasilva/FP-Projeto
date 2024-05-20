@@ -83,14 +83,16 @@ def cadastro_receitas():
             else:
                 print("Opção inválida!")
 
-            #Salvando dados cadastrados em arquivo de formato .txt
+        #Salvando dados cadastrados em arquivo de formato .txt
+        def salvar_receitas(receitas):    
             with open("arquivo_receitas.txt", "r+") as arquivo:
-                arquivo.write(f"Nome do prato: {nome}\n")
-                arquivo.write(f"País: {pais} \n")
-                arquivo.write(f"Ingredientes: {ingredientes} \n")
-                arquivo.write(f"Modo de preparo: {preparo} \n")
-                arquivo.write("\n\n\n")
-                print("Dados salvos com sucesso!")
+                for receita in receitas:
+                    arquivo.write(f"Nome do prato: {nome}\n")
+                    arquivo.write(f"País: {pais} \n")
+                    arquivo.write(f"Ingredientes: {ingredientes} \n")
+                    arquivo.write(f"Modo de preparo: {preparo} \n")
+                    arquivo.write("\n\n\n")
+                    print("Dados salvos com sucesso!")
 
 # Função para filtrar receitas
 def filtrar_receitas(receitas):
