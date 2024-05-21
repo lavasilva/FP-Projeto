@@ -6,6 +6,23 @@ sobremesa = []
 receitas = []
 receitas = entrada + principal + sobremesa
 
+# Carregando receitas do arquivo
+def carregar_receitas():
+    receitas = []
+    with open("arquivo_receitas.txt", "r") as arquivo:
+        for linha in arquivo:
+            linhas = linha.strip().split(",")
+            if len(linhas) < 4:
+                continue
+            receita = {
+                "nome": linhas[0],
+                "pais": linhas[1],
+                "ingredientes": linhas[2],
+                "preparo": linhas[3]
+            }
+            receitas.append(receita)
+    return receitas
+
 # Menu de cadastro de receitas 
 def cadastro_receitas():
     # Variáveis globais para serem utilzadas em outras funções
