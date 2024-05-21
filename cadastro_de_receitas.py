@@ -87,12 +87,15 @@ def cadastro_receitas():
                 print("É uma sobremesa\n")
                 sobremesa.append(receita)
 
+            # Salvando receita no arquivo
+            salvar_receitas([receita])
+
         else:
             print("Opção inválida!")
 
 #Salvando dados cadastrados em arquivo de formato .txt
 def salvar_receitas(receitas):    
-    with open("arquivo_receitas.txt", "w") as arquivo:
+    with open("arquivo_receitas.txt", "a", encoding="utf-8") as arquivo:
         for receita in receitas:
             arquivo.write(f"Nome do prato: {receita['Nome']}\n")
             arquivo.write(f"País: {receita['País de origem']} \n")
@@ -104,7 +107,7 @@ def salvar_receitas(receitas):
 # Função para filtrar receitas
 def filtrar_receitas(receitas):
     receitas_filtradas = []
-    with open("arquivo_receitas.txt", "r"):
+    with open("arquivo_receitas.txt", "r+", encoding="utf-8") as arquivo:
         pais = input("Informe o país: ")
         for receita in receitas:
             if receita["País de origem"] == pais:
@@ -195,7 +198,6 @@ def submenu_principal():
 
         elif submenu == 4:
             print("\nTenha um bom dia!")
-            salvar_receitas(receitas)
             exit()
 
         else:
@@ -234,7 +236,5 @@ def cardapio():
 
         if sugestao == 'nao':
             break
-
-salvar_receitas(receitas)
 
 cadastro_receitas()

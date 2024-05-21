@@ -1,0 +1,12 @@
+Nome do prato: Pastel
+País: Brasil 
+Ingredientes: Massa e recheio escolhido 
+Modo de preparo: Fritar 
+
+
+Nome do prato: Feijoada
+País: Brasil 
+Ingredientes: Feijão preto, carnes escolhidas e louro 
+Modo de preparo: Fogão 
+
+
