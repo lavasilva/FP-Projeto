@@ -1,0 +1,24 @@
+Nome do prato: Pastel
+País: Brasil 
+Ingredientes: Massa e recheio escolhido 
+Modo de preparo: Fritar 
+
+
+Nome do prato: Feijoada
+País: Brasil 
+Ingredientes: Feijão preto, carnes escolhidas e louro 
+Modo de preparo: Fogão 
+
+
+Nome do prato: sushi
+País: japao 
+Ingredientes: peixe cru, arroz  
+Modo de preparo: fatiar os peixes, enrolar na alga 
+
+
+Nome do prato: sushi
+País: japao 
+Ingredientes: peixe, nori, arroz 
+Modo de preparo: faita o peixe, junta no arroz e enrola na alga 
+
+
